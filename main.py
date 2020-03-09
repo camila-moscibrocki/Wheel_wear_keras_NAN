@@ -50,11 +50,51 @@ y_train = y_train[shuffle_mask]
 
 # Seleciona dados no primeiro periodo de tempo e inicia o teste oculto com X0
 X0 = X[:, 0, :]
-Ht = tf.elu(tf.matmul(X0, Wx_h) + b)
+Wx_h =
+Wx_y =
+b =
+b_o =
+
+Ht = tf.nn.elu(tf.matmul(X0, Wx_h) + b)
 y = []
 
-# itera para cada período de tempo definido
+# Faz a iteração nos respectivos periodos de tempo, pegando o periodo mais proximo e iniciando o estado oculto em X0
 for t in range(1, n_steps):
     Xt = X[:, t, :]
-    Ht = tf.elu(tf.matmul(X0, Wx_h) + tf.matmul(Ht, Wh_h) + b)
-    y.append(tf.matmul(Ht, Wh_y) + b_o)
+    Ht = tf.nn.elu(tf.matmul(Xt, Wx_h) + tf.matmul(Ht, Wh_h) + b)
+    y.append(tf.matmul(Ht, Wx_h) + Wx_h)
+
+n_inputs = 1
+n_neurons = 64
+n_outputs = 1
+learning_rate = 0.001
+
+graph = tf.Graph()
+with graph.as_default():
+
+    # placeholders
+    tf_X = tf.placeholder(tf.float32, [None, n_steps, n_inputs], name='X')
+    tf_y = tf.placeholder(tf.float32, [None, n_steps, n_outputs], name='y')
+
+    with tf.name_scope('Recurent_Layer'):
+        cell = BasicRNNCell(num_units=n_neurons, activation=tf.nn.elu)
+        outputs, last_state = tf.nn.dynamic_rnn(cell, tf_X, dtype=tf.float32)
+
+    with tf.name_scope('outlayer'):
+        stacked_outputs = tf.reshape(outputs, [-1, n_neurons])
+        stacked_outputs = tf.layers.dense(stacked_outputs, n_outputs, activation=None)
+        net_outputs = tf.reshape(stacked_outputs, [-1, n_steps, n_outputs])
+
+    with tf.name_scope('train'):
+        loss = tf.reduce_mean(tf.abs(net_outputs - tf_y))  # MAE
+        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
+
+    init = tf.global_variables_initializer(
+
+n_iterations=10000
+batch_size = 64
+
+    with tf.Session(graph=graph) as sess:
+        init.run()
+
+        for step in range(n_iterations + 1):
