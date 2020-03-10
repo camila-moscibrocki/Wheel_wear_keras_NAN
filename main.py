@@ -49,20 +49,15 @@ X_train = X_train[shuffle_mask]
 y_train = y_train[shuffle_mask]
 
 # Seleciona dados no primeiro periodo de tempo e inicia o teste oculto com X0
-X0 = X[:, 0, :]
-Wx_h =
-Wx_y =
-b =
-b_o =
-
-Ht = tf.nn.elu(tf.matmul(X0, Wx_h) + b)
-y = []
+# X0 = X[:, 0, :]
+# Ht = tf.nn.elu(tf.matmul(X0, Wx_h) + b)
+# y = []
 
 # Faz a iteração nos respectivos periodos de tempo, pegando o periodo mais proximo e iniciando o estado oculto em X0
-for t in range(1, n_steps):
-    Xt = X[:, t, :]
-    Ht = tf.nn.elu(tf.matmul(Xt, Wx_h) + tf.matmul(Ht, Wh_h) + b)
-    y.append(tf.matmul(Ht, Wx_h) + Wx_h)
+# for t in range(1, n_steps):
+#    Xt = X[:, t, :]
+#    Ht = tf.nn.elu(tf.matmul(Xt, Wx_h) + tf.matmul(Ht, Wh_h) + b)
+#    y.append(tf.matmul(Ht, Wx_h) + Wx_h)
 
 n_inputs = 1
 n_neurons = 64
@@ -71,7 +66,6 @@ learning_rate = 0.001
 
 graph = tf.Graph()
 with graph.as_default():
-
     # placeholders
     tf_X = tf.placeholder(tf.float32, [None, n_steps, n_inputs], name='X')
     tf_y = tf.placeholder(tf.float32, [None, n_steps, n_outputs], name='y')
@@ -89,12 +83,38 @@ with graph.as_default():
         loss = tf.reduce_mean(tf.abs(net_outputs - tf_y))  # MAE
         optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
 
-    init = tf.global_variables_initializer(
+    init = tf.global_variables_initializer()
 
-n_iterations=10000
+n_iterations = 10000
 batch_size = 64
 
-    with tf.Session(graph=graph) as sess:
-        init.run()
+with tf.Session(graph=graph) as sess:
+    init.run()
 
-        for step in range(n_iterations + 1):
+    for step in range(n_iterations + 1):
+        # cria os mini-lotes
+        offset = (step * batch_size) % (y_train.shape[0] - batch_size)
+        X_batch = X_train[offset:(offset + batch_size), :]
+        y_batch = y_train[offset:(offset + batch_size)]
+
+    # mostra o MAE de treito a cada 2000 iterações
+    if step % 2000 == 0:
+        train_mae = loss.eval(feed_dict={tf_X: X_train, tf_y: y_train})
+    print(step, "\tTrain MAE:", train_mae)
+
+    # mostra o MAE de teste no final do treinamento
+    test_mae = loss.eval(feed_dict={tf_X: X_test, tf_y: y_test})
+    print(step, "\tTest MAE:", test_mae)
+
+    # realiza previsões
+    y_pred = sess.run(net_outputs, feed_dict={tf_X: X_test})
+
+# Inserção de variaveis preditivas
+features = ['km [10^5] SW', 'DELTA At [mm]', 'Hollow (Hl)  (Left)']
+tes = lcc_data[features]
+n_steps = 20
+
+for var_col in features
+    for tima_step in range(1, n_steps+1):
+    # Cria colunas da variável defasada
+    tes[var_col+str(time_step)]
