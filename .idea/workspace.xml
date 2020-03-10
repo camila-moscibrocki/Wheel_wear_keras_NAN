@@ -4,7 +4,7 @@
     <list default="true" id="ffde74be-2a7b-4fa4-9c94-a444eb07502c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/freeze_graph.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/freeze_graph.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/estimator_ckpt_converter.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Scripts/saved_model_cli.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/saved_model_cli.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Scripts/tensorboard.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/tensorboard.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Scripts/tf_upgrade_v2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/tf_upgrade_v2.exe" afterDir="false" />
@@ -100,22 +100,22 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="421" y="117" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1583443626020" />
-    <state width="1899" height="295" key="GridCell.Tab.0.bottom" timestamp="1583845543971">
+    <state width="1899" height="295" key="GridCell.Tab.0.bottom" timestamp="1583860195944">
       <screen x="0" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.bottom/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583845543971" />
-    <state width="1899" height="295" key="GridCell.Tab.0.center" timestamp="1583845543970">
+    <state width="1899" height="295" key="GridCell.Tab.0.bottom/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583860195944" />
+    <state width="1899" height="295" key="GridCell.Tab.0.center" timestamp="1583860195944">
       <screen x="0" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.center/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583845543970" />
-    <state width="1899" height="295" key="GridCell.Tab.0.left" timestamp="1583845543969">
+    <state width="1899" height="295" key="GridCell.Tab.0.center/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583860195944" />
+    <state width="1899" height="295" key="GridCell.Tab.0.left" timestamp="1583860195943">
       <screen x="0" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.left/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583845543969" />
-    <state width="1899" height="295" key="GridCell.Tab.0.right" timestamp="1583845543971">
+    <state width="1899" height="295" key="GridCell.Tab.0.left/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583860195943" />
+    <state width="1899" height="295" key="GridCell.Tab.0.right" timestamp="1583860195944">
       <screen x="0" y="-1080" width="1920" height="1080" />
     </state>
-    <state width="1899" height="295" key="GridCell.Tab.0.right/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583845543971" />
+    <state width="1899" height="295" key="GridCell.Tab.0.right/0.0.1280.720/0.-1080.1920.1080/1920.-1083.1366.768@0.-1080.1920.1080" timestamp="1583860195944" />
     <state x="461" y="-897" key="SettingsEditor" timestamp="1583508742317">
       <screen x="0" y="-1080" width="1920" height="1080" />
     </state>
